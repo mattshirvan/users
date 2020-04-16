@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>C + R Users</title>
+</head>
+<body>
+    <div class="container">
+        <h1>All The Users</h1>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Age</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                      <th scope="row">{{user['id']}}</th>
+                      <td>{{user['first_name']}} {{user['last_name']}} </td>
+                      <td>{{user['email']}}</td>
+                      <td>{{user['age']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+          <div style="outline: 1px solid black; display: block;"></div>
+          <h1>Add A User</h1>
+          <form action="/create" method="POST">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">First Name</label>
+                <input type="text" name = "first_name" class="form-control" id="inputEmail4">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Last Name</label>
+                <input type="text" name = "last_name" class="form-control" id="inputEmail4">
+              </div>
+            </div>            
+            <div class="create">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" name="email"  class="form-control" id="inputEmail4">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Age</label>
+                    <input type="text" name = "age" class="form-control" id="inputEmail4">
+                </div>
+            </div>            
+            <button type="submit" class="btn btn-primary">Add User</button>
+          </form>
+    </div>
+</body>
+</html>
